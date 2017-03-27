@@ -13,7 +13,7 @@ function save() {
         let index = $('#tabs .tab').index($(this));
         selectTab(index);
         let tabData = {
-            title: $('#tab-headers .tab-header').eq(index).find('.title').text(),
+            title: $('#tab-headers .tab-header').eq(index).find('.title').html(),
             notes: [],
         };
         $(this).find('.editor').each(function() {
@@ -21,7 +21,7 @@ function save() {
             tabData.notes.push({
                 xPos: text.offset().left,
                 yPos: text.offset().top,
-                text: text.text(),
+                text: text.html(),
             });
         });
 
@@ -74,7 +74,7 @@ function addNote(xPos, yPos, text='') {
 
     makeEditable(editor.find('.text-holder'));
     editor.find('.text-holder').trigger('click');
-    editor.find('.text-holder').text(text);
+    editor.find('.text-holder').html(text);
 
     editor.find('.text-holder').on('input keydown drop paste', function() {
         save();
@@ -129,7 +129,7 @@ function addTab(title='Untitled') {
 
     let header = $('<div class="tab-header"><span class="title"></span><button class="delete-tab fa fa-trash-o"></button></div>');
     header.appendTo($('#tab-headers'));
-    header.find('.title').text(title);
+    header.find('.title').html(title);
     header.click(function() {
         selectTab($('#tab-headers .tab-header').index(header));
         save();

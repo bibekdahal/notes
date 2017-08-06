@@ -67,7 +67,7 @@ function addNote(xPos, yPos, text='') {
     editor.css('top', yPos);
 
     editor.draggable({
-        grid: [20, 20],
+        grid: [8, 8],
         handle: '.handle',
         stop: function() { save(); },
     })

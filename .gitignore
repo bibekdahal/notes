@@ -1,8 +1,13 @@
-bower_components
-node_modules
-dist
-.sass-cache/
+.DS_Store
+node_modules/
+dist/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
-*.tgz
-*.log
-*.css.map
+# Editor directories and files
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
